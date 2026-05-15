@@ -2,10 +2,224 @@
 <html lang="no">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ormåsen Diskgolfklubb</title>
+  <meta name="description" content="Ormåsen Diskgolfklubb – en lokal diskgolfklubb for spillere på alle nivåer.">
+  <style>
+    :root {
+      --green: #24543a;
+      --green-light: #e8f1eb;
+      --dark: #17211b;
+      --muted: #5f6b63;
+      --card: #ffffff;
+      --bg: #f5f7f3;
+      --line: #dce4dd;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3f2c, #3f7a54);
+      color: white;
+      padding: 70px 20px 60px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    header p {
+      max-width: 680px;
+      margin: 18px auto 0;
+      font-size: 1.15rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: white;
+      color: var(--green);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.14);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+    }
+
+    main {
+      width: min(1080px, calc(100% - 32px));
+      margin: -28px auto 0;
+      position: relative;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 18px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 12px 32px rgba(23, 33, 27, 0.08);
+    }
+
+    h2, h3 {
+      margin-top: 0;
+      line-height: 1.2;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .info-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .info-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .info-list li:last-child {
+      border-bottom: 0;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 0 6px 6px 0;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    a {
+      color: var(--green);
+    }
+
+    footer {
+      width: min(1080px, calc(100% - 32px));
+      margin: 34px auto 0;
+      padding: 28px 0 44px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 850px) {
+      header {
+        padding-top: 46px;
+      }
+
+      .grid,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Ormåsen Diskgolfklubb</h1>
-  <p>Nettsiden er under oppbygging.</p>
+  <header>
+    <h1>Ormåsen Diskgolfklubb</h1>
+    <p>En lokal klubb for alle som vil spille, lære og utvikle diskgolfmiljøet på Ormåsen.</p>
+    <div class="buttons">
+      <a class="button" href="mailto:post@ormasendiscgolfklubb.no">Kontakt klubben</a>
+      <a class="button secondary" href="#medlem">Bli medlem</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="grid">
+      <article class="card">
+        <h2>Velkommen!</h2>
+        <p>
+          Ormåsen Diskgolfklubb er en klubb for både nye og erfarne spillere. Målet vårt er å skape et inkluderende, sosialt og aktivt diskgolfmiljø lokalt.
+        </p>
+        <p class="muted">
+          Nettsiden er under oppbygging. Her kommer det mer informasjon om klubb, bane, treninger og arrangementer etter hvert.
+        </p>
+      </article>
+
+      <aside class="card">
+        <h3>Rask info</h3>
+        <ul class="info-list">
+          <li><strong>Sted:</strong> Ormåsen</li>
+          <li><strong>Nivå:</strong> Alle er velkomne</li>
+          <li><strong>Status:</strong> Nettsiden er ny</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="cards">
+      <article class="card">
+        <h3>Trening og fellesrunder</h3>
+        <p>Informasjon om fellesrunder, treninger og aktiviteter kommer her når kalenderen er klar.</p>
+        <span class="tag">Fellesrunder</span>
+        <span class="tag">Nybegynnere</span>
+        <span class="tag">Sosialt</span>
+      </article>
+
+      <article class="card" id="medlem">
+        <h3>Bli medlem</h3>
+        <p>Vil du bli med i klubben? Send oss en e-post, så hjelper vi deg videre med medlemskap og praktisk informasjon.</p>
+        <p><a href="mailto:post@ormasendiscgolfklubb.no">post@ormasendiscgolfklubb.no</a></p>
+      </article>
+
+      <article class="card">
+        <h3>Banestatus</h3>
+        <p>Her kan klubben legge ut beskjeder om banen, dugnader, midlertidige endringer eller annen viktig informasjon.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Ormåsen Diskgolfklubb · ormåsendiscgolfklubb.no
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
