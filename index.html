@@ -3,21 +3,28 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ormåsen Diskgolfklubb</title>
-  <meta name="description" content="Ormåsen Diskgolfklubb – en lokal diskgolfklubb for spillere på alle nivåer.">
+  <title>Ormåsen Discgolfklubb</title>
+  <meta name="description" content="Ormåsen Discgolfklubb – en inkluderende klubb for både nye og erfarne discgolfspillere.">
   <style>
     :root {
-      --green: #24543a;
+      --green: #23533a;
+      --green-2: #3f7a54;
       --green-light: #e8f1eb;
+      --blue: #203d5c;
       --dark: #17211b;
       --muted: #5f6b63;
       --card: #ffffff;
       --bg: #f5f7f3;
       --line: #dce4dd;
+      --shadow: 0 14px 34px rgba(23, 33, 27, 0.10);
     }
 
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -28,29 +35,121 @@
       line-height: 1.6;
     }
 
-    header {
-      background: linear-gradient(135deg, #1e3f2c, #3f7a54);
+    a {
+      color: var(--green);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(245, 247, 243, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 850;
+      text-decoration: none;
+      color: var(--dark);
+    }
+
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--green);
       color: white;
-      padding: 70px 20px 60px;
+      display: grid;
+      place-items: center;
+      font-size: 0.8rem;
+      font-weight: 900;
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--dark);
+    }
+
+    header {
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.18), transparent 30%),
+        linear-gradient(135deg, #1e3f2c, #3f7a54);
+      color: white;
+      padding: 84px 20px 72px;
       text-align: center;
+    }
+
+    .hero-logo {
+      width: 118px;
+      height: 118px;
+      border-radius: 50%;
+      margin: 0 auto 24px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 3px solid rgba(255, 255, 255, 0.55);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 2rem;
+      font-weight: 950;
+      overflow: hidden;
+    }
+
+    .hero-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     header h1 {
       margin: 0;
-      font-size: clamp(2.2rem, 6vw, 4rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
+      font-size: clamp(2.2rem, 6vw, 4.4rem);
+      line-height: 1.03;
+      letter-spacing: -0.045em;
     }
 
     header p {
-      max-width: 680px;
-      margin: 18px auto 0;
-      font-size: 1.15rem;
-      color: rgba(255, 255, 255, 0.9);
+      max-width: 780px;
+      margin: 20px auto 0;
+      font-size: 1.18rem;
+      color: rgba(255, 255, 255, 0.92);
     }
 
     .buttons {
-      margin-top: 30px;
+      margin-top: 32px;
       display: flex;
       justify-content: center;
       gap: 12px;
@@ -58,25 +157,39 @@
     }
 
     .button {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
       padding: 12px 18px;
       border-radius: 999px;
       background: white;
       color: var(--green);
-      font-weight: 700;
+      font-weight: 800;
       text-decoration: none;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.10);
     }
 
     .button.secondary {
       background: rgba(255, 255, 255, 0.14);
       color: white;
       border: 1px solid rgba(255, 255, 255, 0.45);
+      box-shadow: none;
+    }
+
+    .button.green {
+      background: var(--green);
+      color: white;
     }
 
     main {
-      width: min(1080px, calc(100% - 32px));
-      margin: -28px auto 0;
+      width: min(1120px, calc(100% - 32px));
+      margin: -34px auto 0;
       position: relative;
+    }
+
+    section {
+      scroll-margin-top: 88px;
     }
 
     .grid {
@@ -89,20 +202,36 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
+    }
+
+    .section-space {
       margin-top: 18px;
     }
 
     .card {
       background: var(--card);
       border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 24px;
-      box-shadow: 0 12px 32px rgba(23, 33, 27, 0.08);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .card.compact {
+      padding: 22px;
     }
 
     h2, h3 {
       margin-top: 0;
-      line-height: 1.2;
+      line-height: 1.18;
+    }
+
+    h2 {
+      font-size: clamp(1.55rem, 3vw, 2.2rem);
+      letter-spacing: -0.025em;
+    }
+
+    h3 {
+      font-size: 1.2rem;
     }
 
     .muted {
@@ -132,25 +261,53 @@
       background: var(--green-light);
       color: var(--green);
       font-size: 0.9rem;
-      font-weight: 700;
+      font-weight: 750;
+    }
+
+    .news-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 190px;
+    }
+
+    .date {
+      display: inline-block;
+      width: fit-content;
+      margin-bottom: 12px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: #edf2f7;
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .news-card p {
+      margin-bottom: 0;
     }
 
     .clubwear {
       margin-top: 18px;
     }
 
+    .table-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 16px;
+    }
+
     .table-wrap {
       overflow-x: auto;
-      margin-top: 14px;
       border: 1px solid var(--line);
       border-radius: 16px;
+      background: white;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 460px;
-      background: white;
+      min-width: 360px;
     }
 
     th,
@@ -163,7 +320,7 @@
     th {
       background: var(--green-light);
       color: var(--green);
-      font-weight: 800;
+      font-weight: 850;
     }
 
     tr:last-child td {
@@ -172,15 +329,17 @@
 
     .sold-out {
       color: #8a2d2d;
-      font-weight: 700;
+      font-weight: 800;
     }
 
-    a {
-      color: var(--green);
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 18px;
     }
 
     footer {
-      width: min(1080px, calc(100% - 32px));
+      width: min(1120px, calc(100% - 32px));
       margin: 34px auto 0;
       padding: 28px 0 44px;
       text-align: center;
@@ -188,69 +347,114 @@
       font-size: 0.95rem;
     }
 
-    @media (max-width: 850px) {
-      header {
-        padding-top: 46px;
+    @media (max-width: 900px) {
+      .grid,
+      .cards,
+      .table-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
       }
 
-      .grid,
-      .cards {
-        grid-template-columns: 1fr;
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        gap: 12px;
+      }
+
+      header {
+        padding-top: 48px;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Ormåsen Diskgolfklubb</h1>
-    <p>En lokal klubb for alle som vil spille, lære og utvikle diskgolfmiljøet på Ormåsen.</p>
+  <div class="topbar">
+    <nav class="nav" aria-label="Hovedmeny">
+      <a class="brand" href="#top">
+        <span class="brand-logo">
+          <img src="assets/logo.png" alt="Ormåsen Discgolfklubb logo" onerror="this.style.display='none'; this.parentElement.textContent='ODK';">
+        </span>
+        <span>Ormåsen Discgolfklubb</span>
+      </a>
+      <div class="nav-links">
+        <a href="#klubben">Klubben</a>
+        <a href="#aktiviteter">Aktiviteter</a>
+        <a href="#klubbtoy">Klubbtøy</a>
+        <a href="#medlem">Bli medlem</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+    </nav>
+  </div>
+
+  <header id="top">
+    <div class="hero-logo">
+      <img src="assets/logo.png" alt="Ormåsen Discgolfklubb logo" onerror="this.style.display='none'; this.parentElement.textContent='ODK';">
+    </div>
+    <h1>Ormåsen Discgolfklubb</h1>
+    <p>Vi ønsker å skape et inkluderende miljø der både nye og erfarne spillere kan møtes og dele sin lidenskap for sporten.</p>
     <div class="buttons">
-      <a class="button" href="mailto:post@ormasendiscgolfklubb.no">Kontakt klubben</a>
-      <a class="button secondary" href="#medlem">Bli medlem</a>
+      <a class="button" href="https://ormasendk.idrettenonline.no/next/membership/register">Bli medlem</a>
+      <a class="button secondary" href="#aktiviteter">Se aktiviteter</a>
+      <a class="button secondary" href="https://www.norsk-tipping.no/grasrotandelen/din-mottaker/927988666">Støtt oss med Grasrotandelen</a>
     </div>
   </header>
 
   <main>
-    <section class="grid">
+    <section class="grid" id="klubben">
       <article class="card">
-        <h2>Velkommen!</h2>
+        <h2>Velkommen til klubben</h2>
         <p>
-          Ormåsen Diskgolfklubb er en klubb for både nye og erfarne spillere. Målet vårt er å skape et inkluderende, sosialt og aktivt diskgolfmiljø lokalt.
+          Ormåsen Discgolfklubb er en lokal klubb for alle som vil spille, lære og utvikle discgolfmiljøet på Ormåsen.
         </p>
-        <p class="muted">
-          Nettsiden er under oppbygging. Her kommer det mer informasjon om klubb, bane, treninger og arrangementer etter hvert.
+        <p>
+          Vi inviterer alle til å delta på arrangementer, fellesrunder og aktiviteter – enten du er helt ny eller har spilt lenge.
         </p>
+        <span class="tag">Nybegynnere</span>
+        <span class="tag">Fellesrunder</span>
+        <span class="tag">Turneringer</span>
+        <span class="tag">Sosialt miljø</span>
       </article>
 
       <aside class="card">
         <h3>Rask info</h3>
         <ul class="info-list">
           <li><strong>Sted:</strong> Ormåsen</li>
-          <li><strong>Nivå:</strong> Alle er velkomne</li>
-          <li><strong>Status:</strong> Nettsiden er ny</li>
+          <li><strong>Adresse:</strong> Diorittveien 58, 3320 Vestfossen</li>
+          <li><strong>Org.nr.:</strong> 927 988 666</li>
+          <li><strong>E-post:</strong> <a href="mailto:ormasendk@gmail.com">ormasendk@gmail.com</a></li>
         </ul>
       </aside>
     </section>
 
-    <section class="cards">
-      <article class="card">
-        <h3>Trening og fellesrunder</h3>
-        <p>Informasjon om fellesrunder, treninger og aktiviteter kommer her når kalenderen er klar.</p>
-        <span class="tag">Fellesrunder</span>
-        <span class="tag">Nybegynnere</span>
-        <span class="tag">Sosialt</span>
-      </article>
+    <section class="section-space" id="aktiviteter">
+      <div class="card">
+        <h2>Aktiviteter og siste nytt</h2>
+        <p class="muted">Her kan klubben legge inn utvalgte aktiviteter, nyheter og beskjeder. Tekstene under kan enkelt endres i GitHub.</p>
+      </div>
+      <div class="cards section-space">
+        <article class="card compact news-card">
+          <span class="date">Torsdager</span>
+          <h3>Ukesgolf</h3>
+          <p>Ukesgolf gjennomføres gjennom sesongen. Følg med for informasjon om tidspunkt, oppmøte og format.</p>
+        </article>
 
-      <article class="card" id="medlem">
-        <h3>Bli medlem</h3>
-        <p>Vil du bli med i klubben? Send oss en e-post, så hjelper vi deg videre med medlemskap og praktisk informasjon.</p>
-        <p><a href="mailto:post@ormasendiscgolfklubb.no">post@ormasendiscgolfklubb.no</a></p>
-      </article>
+        <article class="card compact news-card">
+          <span class="date">06.–07. juni 2026</span>
+          <h3>Åpningsturnering – ny layout</h3>
+          <p>Foreløpig dato for åpningsturnering på ny bane. Mer informasjon om påmelding og regler kommer.</p>
+        </article>
 
-      <article class="card">
-        <h3>Banestatus</h3>
-        <p>Her kan klubben legge ut beskjeder om banen, dugnader, midlertidige endringer eller annen viktig informasjon.</p>
-      </article>
+        <article class="card compact news-card">
+          <span class="date">Kommer</span>
+          <h3>Trening og junior</h3>
+          <p>Informasjon om treninger, junioraktivitet og åpne dager legges ut her når planene er klare.</p>
+        </article>
+      </div>
     </section>
 
     <section class="card clubwear" id="klubbtoy">
@@ -262,48 +466,54 @@
         <strong>Pris: 150 kr per t-skjorte</strong>
       </p>
 
-      <h3>Grønn t-skjorte – rund hals</h3>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Størrelse</th>
-              <th>Antall</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>XS</td><td>2 stk</td></tr>
-            <tr><td>S</td><td>3 stk</td></tr>
-            <tr><td>M</td><td>5 stk</td></tr>
-            <tr><td>L</td><td>6 stk</td></tr>
-            <tr><td>XL</td><td>5 stk</td></tr>
-            <tr><td>XXL</td><td>2 stk</td></tr>
-            <tr><td>XXXL</td><td>3 stk</td></tr>
-            <tr><td>XXXXXXL</td><td>1 stk</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="table-grid">
+        <div>
+          <h3>Grønn t-skjorte – rund hals</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Størrelse</th>
+                  <th>Antall</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>XS</td><td>2 stk</td></tr>
+                <tr><td>S</td><td>3 stk</td></tr>
+                <tr><td>M</td><td>5 stk</td></tr>
+                <tr><td>L</td><td>6 stk</td></tr>
+                <tr><td>XL</td><td>5 stk</td></tr>
+                <tr><td>XXL</td><td>2 stk</td></tr>
+                <tr><td>XXXL</td><td>3 stk</td></tr>
+                <tr><td>XXXXXXL</td><td>1 stk</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
-      <h3>Grønn t-skjorte – pique</h3>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Størrelse</th>
-              <th>Antall/status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>XS</td><td>1 stk</td></tr>
-            <tr><td>S</td><td>2 stk</td></tr>
-            <tr><td>M</td><td>5 stk (4 igjen)</td></tr>
-            <tr><td>L</td><td>7 stk</td></tr>
-            <tr><td>XL</td><td>3 stk</td></tr>
-            <tr><td>XXL</td><td>3 stk (1 igjen)</td></tr>
-            <tr><td>XXXL</td><td class="sold-out">Ingen tilgjengelig</td></tr>
-            <tr><td>XXXXXXL</td><td class="sold-out">Ingen tilgjengelig</td></tr>
-          </tbody>
-        </table>
+        <div>
+          <h3>Grønn t-skjorte – pique</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Størrelse</th>
+                  <th>Antall/status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>XS</td><td>1 stk</td></tr>
+                <tr><td>S</td><td>2 stk</td></tr>
+                <tr><td>M</td><td>5 stk (4 igjen)</td></tr>
+                <tr><td>L</td><td>7 stk</td></tr>
+                <tr><td>XL</td><td>3 stk</td></tr>
+                <tr><td>XXL</td><td>3 stk (1 igjen)</td></tr>
+                <tr><td>XXXL</td><td class="sold-out">Ingen tilgjengelig</td></tr>
+                <tr><td>XXXXXXL</td><td class="sold-out">Ingen tilgjengelig</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
 
       <p>
@@ -315,10 +525,33 @@
         De blå t-skjortene klubben har liggende, vil bli gitt til nye medlemmer av klubben.
       </p>
     </section>
+
+    <section class="contact-grid section-space" id="medlem">
+      <article class="card">
+        <h2>Bli medlem</h2>
+        <p>
+          Vil du bli medlem i Ormåsen Discgolfklubb? Bruk innmeldingslenken under, eller ta kontakt hvis du har spørsmål.
+        </p>
+        <p>
+          <a class="button green" href="https://ormasendk.idrettenonline.no/next/membership/register">Trykk her for innmelding</a>
+        </p>
+      </article>
+
+      <article class="card" id="kontakt">
+        <h2>Kontakt oss</h2>
+        <ul class="info-list">
+          <li><strong>E-post:</strong> <a href="mailto:ormasendk@gmail.com">ormasendk@gmail.com</a></li>
+          <li><strong>Telefon:</strong> <a href="tel:+4797027367">+47 97 02 73 67</a></li>
+          <li><strong>Adresse:</strong> Diorittveien 58, 3320 Vestfossen</li>
+          <li><strong>Org.nr.:</strong> 927 988 666</li>
+        </ul>
+        <p class="muted">Facebook- og Instagram-lenker kan legges inn her når riktige adresser er klare.</p>
+      </article>
+    </section>
   </main>
 
   <footer>
-    © <span id="year"></span> Ormåsen Diskgolfklubb · ormåsendiscgolfklubb.no
+    © <span id="year"></span> Ormåsen Discgolfklubb · ormåsendiscgolfklubb.no
   </footer>
 
   <script>
