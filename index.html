@@ -135,6 +135,46 @@
       font-weight: 700;
     }
 
+    .clubwear {
+      margin-top: 18px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 460px;
+      background: white;
+    }
+
+    th,
+    td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+    }
+
+    th {
+      background: var(--green-light);
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .sold-out {
+      color: #8a2d2d;
+      font-weight: 700;
+    }
+
     a {
       color: var(--green);
     }
@@ -211,6 +251,69 @@
         <h3>Banestatus</h3>
         <p>Her kan klubben legge ut beskjeder om banen, dugnader, midlertidige endringer eller annen viktig informasjon.</p>
       </article>
+    </section>
+
+    <section class="card clubwear" id="klubbtoy">
+      <h2>Info om klubbtøy</h2>
+      <p>
+        Styret har bestemt å sette ned prisen på de grønne t-skjortene. Dette gjelder både rund hals og pique.
+      </p>
+      <p>
+        <strong>Pris: 150 kr per t-skjorte</strong>
+      </p>
+
+      <h3>Grønn t-skjorte – rund hals</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Størrelse</th>
+              <th>Antall</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>XS</td><td>2 stk</td></tr>
+            <tr><td>S</td><td>3 stk</td></tr>
+            <tr><td>M</td><td>5 stk</td></tr>
+            <tr><td>L</td><td>6 stk</td></tr>
+            <tr><td>XL</td><td>5 stk</td></tr>
+            <tr><td>XXL</td><td>2 stk</td></tr>
+            <tr><td>XXXL</td><td>3 stk</td></tr>
+            <tr><td>XXXXXXL</td><td>1 stk</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Grønn t-skjorte – pique</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Størrelse</th>
+              <th>Antall/status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>XS</td><td>1 stk</td></tr>
+            <tr><td>S</td><td>2 stk</td></tr>
+            <tr><td>M</td><td>5 stk (4 igjen)</td></tr>
+            <tr><td>L</td><td>7 stk</td></tr>
+            <tr><td>XL</td><td>3 stk</td></tr>
+            <tr><td>XXL</td><td>3 stk (1 igjen)</td></tr>
+            <tr><td>XXXL</td><td class="sold-out">Ingen tilgjengelig</td></tr>
+            <tr><td>XXXXXXL</td><td class="sold-out">Ingen tilgjengelig</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Ønsker du å kjøpe? Kommenter gjerne på innlegget, eller send en e-post til
+        <a href="mailto:ormasendk@gmail.com">ormasendk@gmail.com</a> med ønsket størrelse og type t-skjorte
+        (rund hals eller pique), så avtaler vi overlevering.
+      </p>
+      <p class="muted">
+        De blå t-skjortene klubben har liggende, vil bli gitt til nye medlemmer av klubben.
+      </p>
     </section>
   </main>
 
